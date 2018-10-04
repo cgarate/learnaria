@@ -47,16 +47,16 @@ var showBlock = function(className){
   }
 
 window.onload = function () {
-    if($s("country").value == ''){ 
+    if($s("country").value == ''){
             $s("country").value = "usa";
     }
-    setCountry(); 
+    setCountry();
     joinForm = new JoinForm();
     joinForm.setMessages();
     $s("country").onchange = setCountry;
     $s("join").onclick = joinClick;
     $s("reset_form").onclick = resetClick;
-    
+
     var a = document.getElementsByClassName("fake");
     for(i=0 ; i<a.length ; i++){
         a[i].addEventListener('click', function(e) {
@@ -65,5 +65,5 @@ window.onload = function () {
                 alert("fake link");
             }
         });
-    } 
+    }
 }
