@@ -16,7 +16,7 @@
 		this._name = pluginName;
 		this._defaults = defaults;
 		this.element = $(element);
-		this.options = $.extend( {}, defaults, options) ;
+		this.options = $.extend( {}, defaults, options);
 		
 		this.init();
 	}
@@ -83,7 +83,7 @@
 						
 						$tooltip
               .attr({
-                'aria-hidden': 'true';
+                'aria-hidden': 'true'
               })
 							.removeClass('visible mouseover');					
 					}
