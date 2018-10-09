@@ -101,10 +101,10 @@
         .on('keyup', function(event) {
           if (event.keyCode === ik_utils.keys.esc) {
             $tooltip
+            .removeClass('visible')
             .attr({
               'aria-hidden': true
-            })
-            .removeClass('visible');
+            });
           }
         })
 		}
