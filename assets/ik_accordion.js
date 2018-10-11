@@ -98,24 +98,44 @@
 				$btn = $hdr.find('.button');
 
 				if($btn[0] != $(event.currentTarget)[0]) {
-					$btn.removeClass('expanded');
+					$btn.removeClass('expanded')
+          .attr({
+            'aria-expanded': false
+          });
 					$hdr.next().slideUp(plugin.options.animationSpeed);
 				} else {
-					$btn.addClass('expanded');
-					$hdr.next().slideDown(plugin.options.animationSpeed);
+
+          if ($me.is('[aria-expanded*="false"]')) {
+            $btn.addClass('expanded')
+            .attr({
+              'aria-expanded': true
+            });
+            $hdr.next().slideDown(plugin.options.animationSpeed);
+          }
+          else {
+            $btn.removeClass('expanded')
+            .attr({
+              'aria-expanded': false
+            });
+            $hdr.next().slideUp(plugin.options.animationSpeed);
+          }
+
 				}
 			});
 
 		} else { // toggle current panel depending on the state
 
 			isVisible = !!$panel.is(':visible');
+      $me.attr({
+        'aria-expanded': !isVisible
+      });
 			$panel.slideToggle({ duration: plugin.options.animationSpeed });
 
 		}
 	};
 
   /**
-     * Handles kedown event on header button.
+     * Handles keydown event on header button.
      *
      * @param {Object} event - Keyboard event.
      * @param {object} event.data - Event data.
